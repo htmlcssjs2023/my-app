@@ -1,8 +1,12 @@
+import { Button } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import React from 'react';
 
 
-function Note() {
+function Note({title, content, id, delNote}) {
+  function clickHandler(){
+    delNote(id);
+  }
   return (
    
       <Paper style={{ 
@@ -13,9 +17,10 @@ function Note() {
         display:"inline-flex"
         }}>
        <div>
-          <h1>Title</h1>
-          <p>Content</p>
+          <h1>{title}</h1>
+          <p>{content}</p>
        </div>
+       <Button onClick={clickHandler} style={{ marginLeft: "120px" }}>❌</Button>
       </Paper>
   )
 }
